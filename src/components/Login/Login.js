@@ -1,13 +1,32 @@
 import React, { Component } from 'react';
-import Card , { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
+import Card , { CardContent, CardActions } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
+import Divider from 'material-ui/Divider';
+import Typography from 'material-ui/Typography';
 
 import './Login.css';
 
 class Login extends Component {
-  render() {
+  state = {
+    showMammt: false
+  }
+
+  clickButtonHandler = () => {
+    let show = this.state.showMammt;
+    this.setState({ showMammt: !show });
+  }
+
+  render(){
+    let message = null;
+
+    if (this.state.showMammt === true) {
+      message = (
+        <p>MAMMT</p>
+      );
+    }
+    
     return (
       <div>
         <div className="background" />
@@ -16,9 +35,12 @@ class Login extends Component {
           <Grid item xs={12} sm={6} md={5} lg={3} xl={3}>
           <Card className="loginForm">
             <hgroup>
-              <h1>Accesso</h1>
+              <Typography type="display1" gutterBottom style={{ color: '#fff  ' }}>
+                Accesso
+              </Typography>
             </hgroup>
             <CardContent>
+              {message}
             <TextField
               type="text"
               id="username"
@@ -34,8 +56,9 @@ class Login extends Component {
               fullWidth
               />
             </CardContent>
+            <Divider />
             <CardActions>
-              <Button raised color="primary" fullWidth>Accedi</Button>
+              <Button raised color="primary" style={{ width: '100%' }} onClick={this.clickButtonHandler}>Accedi</Button>
             </CardActions>
           </Card>
           </Grid>
