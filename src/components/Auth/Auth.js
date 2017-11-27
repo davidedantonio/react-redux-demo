@@ -18,14 +18,6 @@ class Auth extends Component {
   }
 
   render(){
-    let message = null;
-
-    if (this.state.showMammt === true) {
-      message = (
-        <p>MAMMT</p>
-      );
-    }
-    
     return (
       <div>
         <div className="background" />
@@ -39,7 +31,6 @@ class Auth extends Component {
               </Typography>
             </hgroup>
             <CardContent>
-              {message}
             <TextField
               type="text"
               id="username"
