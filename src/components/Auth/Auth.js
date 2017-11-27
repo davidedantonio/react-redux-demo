@@ -6,16 +6,15 @@ import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 import Typography from 'material-ui/Typography';
 
-import './Login.css';
+import './Auth.css';
 
-class Login extends Component {
+class Auth extends Component {
   state = {
-    showMammt: false
-  }
-
-  clickButtonHandler = () => {
-    let show = this.state.showMammt;
-    this.setState({ showMammt: !show });
+    token: null,
+    userId: null,
+    error: null,
+    loading: false,
+    authRedirectPath: '/dashboard'
   }
 
   render(){
@@ -58,7 +57,7 @@ class Login extends Component {
             </CardContent>
             <Divider />
             <CardActions>
-              <Button raised color="primary" style={{ width: '100%' }} onClick={this.clickButtonHandler}>Accedi</Button>
+              <Button raised color="primary" style={{ width: '100%' }}>Accedi</Button>
             </CardActions>
           </Card>
           </Grid>
