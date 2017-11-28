@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import {  Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import Auth from './../components/Auth/Auth';
 import Rmp from './../components/Rmp/Rmp';
 import * as actions from '../store/actions/index';
@@ -16,17 +16,18 @@ class App extends Component {
     // If user is not authenticated
     let routes = (
       <Switch>
-        <Route path="/auth" component="{Auth}" />
-        <Route path="/" exact component="{Rmp}" />
+        <Route path="/auth" component={Auth} />
+        <Route path="/" exact component={Rmp} />
         <Redirect to="/" />
       </Switch>
     );
 
     // Check if user is authenticated
-    if (this.props.isAuthenticated) {
+    if (this.props.isAuthenticated === true) {
+      console.log("MAMMT");
       routes = (
         <Switch>
-          <Route path="/" exact component="{Rmp}" />
+          <Route path="/" exact component={Rmp} />
           <Redirect to="/" />
         </Switch>
       );
@@ -41,7 +42,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     isAuthenticated: state.auth.token !== null
   }

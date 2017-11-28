@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import Card , { CardContent, CardActions } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 import Typography from 'material-ui/Typography';
+import * as actions from '../../store/actions/index';
 
 import './Auth.css';
 
@@ -58,4 +61,21 @@ class Auth extends Component {
   }
 }
 
-export default Auth;
+const mapStateToProps = state => {
+  return {
+      loading: state.auth.loading,
+      error: state.auth.error,
+      isAuthenticated: state.auth.token !== null,
+      buildingBurger: state.burgerBuilder.building,
+      authRedirectPath: state.auth.authRedirectPath
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onAuth: ( email, password, isSignup ) => dispatch( actions.auth( email, password, isSignup ) ),
+      onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
+  };
+};
+
+export default connect( mapStateToProps, mapDispatchToProps )( Auth );
