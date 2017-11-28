@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { BrowserRouter, Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import Auth from './../components/Auth/Auth';
-importn
+import Rmp from './../components/Rmp/Rmp';
+import * as actions from '../store/actions/index';
+
 import './App.css';
 
 class App extends Component {
+  componentDidMount () {
+    this.props.onTryAutoSignup();
+  }
+
   render() {
     // If user is not authenticated
     let routes = (
@@ -26,15 +33,24 @@ class App extends Component {
     }
 
     return (
-      {routes}
+      <div>
+        {routes}
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
-    isAuthenticated: state.props.token !== null
+    isAuthenticated: state.auth.token !== null
   }
-}
+};
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignup: () => dispatch( actions.authCheckState() )
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
