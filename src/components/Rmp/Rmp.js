@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 
 class Rmp extends Component {
   render() {
+    if (!this.props.isAuthenticated) {
+        this.props.onSetAuthRedirectPath('/checkout');
+        this.props.history.push('/auth');
+    }
     return (
       <p>MAMMT A PECR</p>
     );
