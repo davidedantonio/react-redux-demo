@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
 
-import Card , { CardContent, CardActions } from 'material-ui/Card';
-import Button from 'material-ui/Button';
-import Grid from 'material-ui/Grid';
-import TextField from 'material-ui/TextField';
-import Divider from 'material-ui/Divider';
-import Typography from 'material-ui/Typography';
 import * as actions from '../../store/actions/index';
 
-import './Auth.css';
+import styles from './Auth.less';
+const FormItem = Form.Item;
 
 class Auth extends Component {
+  
   state = {
     token: null,
     userId: null,
@@ -21,42 +18,42 @@ class Auth extends Component {
   }
 
   render(){
+    const { getFieldDecorator } = this.props.form;
+
     return (
-      <div>
-        <div className="background" />
-        <div className="background2" />
-        <Grid container justify="center" alignItems="center">
-          <Grid item xs={12} sm={6} md={5} lg={3} xl={3}>
-          <Card className="loginForm">
-            <hgroup>
-              <Typography type="display1" gutterBottom style={{ color: '#fff  ' }}>
-                Accesso
-              </Typography>
-            </hgroup>
-            <CardContent>
-            <TextField
-              type="text"
-              id="username"
-              label="Username"
-              margin="normal"
-              fullWidth
-              />
-            <TextField
-              type="text"
-              id="password"
-              label="Password"
-              margin="normal"
-              fullWidth
-              />
-            </CardContent>
-            <Divider />
-            <CardActions>
-              <Button raised color="primary" style={{ width: '100%' }}>Accedi</Button>
-            </CardActions>
-          </Card>
-          </Grid>
-        </Grid>
-      </div>
+      <div className={styles.form}>
+      <form>
+
+        <FormItem>
+          {getFieldDecorator('userName', {
+            rules: [{ required: true, message: 'Please input your username!' }],
+          })(
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
+          )}
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('remember', {
+            valuePropName: 'checked',
+            initialValue: true,
+          })(
+            <Checkbox>Remember me</Checkbox>
+          )}
+          <a className="login-form-forgot" href="">Forgot password</a>
+          <Button type="primary" htmlType="submit" className="login-form-button">
+            Log in
+          </Button>
+          Or <a href="">register now!</a>
+        </FormItem>
+
+      </form>
+    </div>
     );
   }
 }
@@ -77,4 +74,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect( mapStateToProps, mapDispatchToProps )( Auth );
+export default connect( mapStateToProps, mapDispatchToProps )( Form.create()(Auth) );
