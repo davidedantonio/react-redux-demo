@@ -3,8 +3,9 @@ import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 
 // Import from Antd
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Icon, Menu, Dropdown, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
+import MenuApp from './../Layout/MenuApp';
 
 const { Header, Sider, Content } = Layout;
 
@@ -21,6 +22,14 @@ class Rmp extends Component {
   }
 
   render() {
+    const menu = (
+      <Menu selectedKeys={[]}>
+        <Menu.Item><Icon type="setting" /> Settings</Menu.Item>
+        <Menu.Divider />
+        <Menu.Item key="logout"><Icon type="logout" /> Logout</Menu.Item>
+      </Menu>
+    );
+
     return (
       <Layout>
         <Sider
@@ -29,20 +38,7 @@ class Rmp extends Component {
           collapsed={this.state.collapsed}
         >
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <Link to="/dashboard">
-                <Icon type="global" />
-                <span>Dashboard</span>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="2">
-            <Link to="/users">
-              <Icon type="user" />
-              <span>Users</span>
-            </Link>
-            </Menu.Item>
-          </Menu>
+          <MenuApp />
         </Sider>
         <Layout>
           <Header className="navigation navigation-fixed navigation-raised">
@@ -51,6 +47,12 @@ class Rmp extends Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
+
+            <span className="right">
+              <Dropdown overlay={menu}>
+                <Avatar className="avatar" shape="square" size="large" icon="user" />
+              </Dropdown>
+            </span>
           </Header>
           <Content className="app-layout-content">
             {this.props.children}

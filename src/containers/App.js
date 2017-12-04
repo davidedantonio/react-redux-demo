@@ -5,7 +5,13 @@ import Auth from './../components/Auth/Auth';
 import Rmp from './../components/Rmp/Rmp';
 import Dashboard from './../components/Dashboard/Dashboard';
 import User from './../components/User/User';
+import Global from './../components/Global/Global';
+import Groups from './../components/Groups/Groups';
+import Profiles from './../components/Profiles/Profiles';
+import Functions from './../components/Functions/Functions';
 import * as actions from '../store/actions/index';
+import enUS from 'antd/lib/locale-provider/en_US';
+import {LocaleProvider} from 'antd';
 
 class App extends Component {
   componentDidMount () {
@@ -22,16 +28,23 @@ class App extends Component {
     );
 
     // Check if user is authenticated
+    
     if (this.props.isAuthenticated === true) {
       routes = (
-        <Rmp>
-          <Switch>
-            <Route path="/" exact component={Dashboard} />
-            <Route path="/dashboard" exact component={Dashboard} />
-            <Route path="/users" exact component={User} />
-            <Redirect to="/dashboard" />
-          </Switch>
-        </Rmp>
+        <LocaleProvider locale={enUS}>
+          <Rmp>
+            <Switch>
+              <Route path="/" exact component={Dashboard} />
+              <Route path="/dashboard" exact component={Dashboard} />
+              <Route path="/global" exact component={Global} />
+              <Route path="/users" exact component={User} />
+              <Route path="/groups" exact component={Groups} />
+              <Route path="/profiles" exact component={Profiles} />
+              <Route path="/functions" exact component={Functions} />
+              <Redirect to="/dashboard" />
+            </Switch>
+          </Rmp>
+        </LocaleProvider>
       );
     }
 

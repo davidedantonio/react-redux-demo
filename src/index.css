@@ -1,4 +1,28 @@
 @import url(~antd/dist/antd.css);
+.subhead {
+  height: 48px;
+  line-height: 48px;
+  background: #fff;
+  border-bottom: 1px solid #e9e9e9;
+  padding: 0 24px;
+  border-radius: 2px 2px 0 0;
+  zoom: 1;
+  margin-bottom: -1px;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subhead .subhead-title {
+  font-size: 18px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  flex: 1 1;
+}
+
 .navigation {
   width: 100%;
   background: #fff;
@@ -11,10 +35,45 @@
 
 .navigation.navigation-raised {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  z-index: 999;
 }
 
 .navigation .navigation-sidebar-button {
   font-size: 20px;
+  line-height: 64px;
+}
+
+.navigation .right {
+  float: right;
+  height: 100%;
+}
+
+.navigation .right .action {
+  cursor: pointer;
+  padding: 0 12px;
+  display: inline-block;
+  transition: all .3s;
+  height: 100%;
+  font-size: 15px;
+}
+
+.navigation .right .action > i {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.navigation .right .search {
+  padding: 0;
+  margin: 0 12px;
+}
+
+.navigation .right .search:hover {
+  background: transparent;
+}
+
+.navigation .right .avatar {
+  background: #108ee9;
+  vertical-align: middle;
 }
 
 .navigation-red {
@@ -404,6 +463,384 @@
 
 .app-layout-content {
   overflow-y: auto;
+}
+
+.background-red {
+  color: #fbb4af !important;
+  background: #f44336;
+}
+
+.background-red a {
+  color: #fccbc7;
+  text-decoration: none;
+}
+
+.background-red a:not([disabled]):focus {
+  color: #a21309;
+}
+
+.background-red a:not([disabled]):hover {
+  color: #a21309;
+}
+
+.background-pink {
+  color: #f492b4 !important;
+  background: #e91e63;
+}
+
+.background-pink a {
+  color: #f7a9c4;
+  text-decoration: none;
+}
+
+.background-pink a:not([disabled]):focus {
+  color: #7b0c32;
+}
+
+.background-pink a:not([disabled]):hover {
+  color: #7b0c32;
+}
+
+.background-purple {
+  color: #d176e1 !important;
+  background: #9c27b0;
+}
+
+.background-purple a {
+  color: #d88be5;
+  text-decoration: none;
+}
+
+.background-purple a:not([disabled]):focus {
+  color: #3f1048;
+}
+
+.background-purple a:not([disabled]):hover {
+  color: #3f1048;
+}
+
+.background-deep-purple {
+  color: #ae94dd !important;
+  background: #673ab7;
+}
+
+.background-deep-purple a {
+  color: #bda7e3;
+  text-decoration: none;
+}
+
+.background-deep-purple a:not([disabled]):focus {
+  color: #311b56;
+}
+
+.background-deep-purple a:not([disabled]):hover {
+  color: #311b56;
+}
+
+.background-indigo {
+  color: #98a2db !important;
+  background: #3f51b5;
+}
+
+.background-indigo a {
+  color: #abb4e2;
+  text-decoration: none;
+}
+
+.background-indigo a:not([disabled]):focus {
+  color: #1e2756;
+}
+
+.background-indigo a:not([disabled]):hover {
+  color: #1e2756;
+}
+
+.background-blue {
+  color: #82c6f6 !important;
+  background: #108ee9;
+}
+
+.background-blue a {
+  color: #9ad1f8;
+  text-decoration: none;
+}
+
+.background-blue a:not([disabled]):focus {
+  color: #084572;
+}
+
+.background-blue a:not([disabled]):hover {
+  color: #084572;
+}
+
+.background-light-blue {
+  color: #79d4fd !important;
+  background: #03a9f4;
+}
+
+.background-light-blue a {
+  color: #92dcfe;
+  text-decoration: none;
+}
+
+.background-light-blue a:not([disabled]):focus {
+  color: #015276;
+}
+
+.background-light-blue a:not([disabled]):hover {
+  color: #015276;
+}
+
+.background-cyan {
+  color: #55ecff !important;
+  background: #00bcd4;
+}
+
+.background-cyan a {
+  color: #6eefff;
+  text-decoration: none;
+}
+
+.background-cyan a:not([disabled]):focus {
+  color: #004b55;
+}
+
+.background-cyan a:not([disabled]):hover {
+  color: #004b55;
+}
+
+.background-teal {
+  color: #17ffe9 !important;
+  background: #009688;
+}
+
+.background-teal a {
+  color: #30ffec;
+  text-decoration: none;
+}
+
+.background-teal a:not([disabled]):focus {
+  color: #001714;
+}
+
+.background-teal a:not([disabled]):hover {
+  color: #001714;
+}
+
+.background-green {
+  color: #a3d7a5 !important;
+  background: #4caf50;
+}
+
+.background-green a {
+  color: #b5dfb7;
+  text-decoration: none;
+}
+
+.background-green a:not([disabled]):focus {
+  color: #255627;
+}
+
+.background-green a:not([disabled]):hover {
+  color: #255627;
+}
+
+.background-light-green {
+  color: #eef7e0 !important;
+  background: #b6dd7a;
+}
+
+.background-light-green a {
+  color: #f9fcf4;
+  text-decoration: none;
+}
+
+.background-light-green a:not([disabled]):focus {
+  color: #79ac2c;
+}
+
+.background-light-green a:not([disabled]):hover {
+  color: #79ac2c;
+}
+
+.background-lime {
+  color: #e8efa5 !important;
+  background: #cddc39;
+}
+
+.background-lime a {
+  color: #eef3bb;
+  text-decoration: none;
+}
+
+.background-lime a:not([disabled]):focus {
+  color: #757f16;
+}
+
+.background-lime a:not([disabled]):hover {
+  color: #757f16;
+}
+
+.background-yellow {
+  color: #fef0b3 !important;
+  background: #fdd835;
+}
+
+.background-yellow a {
+  color: #fff5cd;
+  text-decoration: none;
+}
+
+.background-yellow a:not([disabled]):focus {
+  color: #b19002;
+}
+
+.background-yellow a:not([disabled]):hover {
+  color: #b19002;
+}
+
+.background-amber {
+  color: #ffd080 !important;
+  background: #ffa000;
+}
+
+.background-amber a {
+  color: #ffd999;
+  text-decoration: none;
+}
+
+.background-amber a:not([disabled]):focus {
+  color: #805000;
+}
+
+.background-amber a:not([disabled]):hover {
+  color: #805000;
+}
+
+.background-orange {
+  color: #ffcc80 !important;
+  background: #ff9800;
+}
+
+.background-orange a {
+  color: #ffd699;
+  text-decoration: none;
+}
+
+.background-orange a:not([disabled]):focus {
+  color: #804c00;
+}
+
+.background-orange a:not([disabled]):hover {
+  color: #804c00;
+}
+
+.background-deep-orange {
+  color: #ffb8a2 !important;
+  background: #ff5722;
+}
+
+.background-deep-orange a {
+  color: #ffcbbb;
+  text-decoration: none;
+}
+
+.background-deep-orange a:not([disabled]):focus {
+  color: #a22700;
+}
+
+.background-deep-orange a:not([disabled]):hover {
+  color: #a22700;
+}
+
+.background-brown {
+  color: #b89588 !important;
+  background: #795548;
+}
+
+.background-brown a {
+  color: #c2a398;
+  text-decoration: none;
+}
+
+.background-brown a:not([disabled]):focus {
+  color: #291d18;
+}
+
+.background-brown a:not([disabled]):hover {
+  color: #291d18;
+}
+
+.background-blue-gray {
+  color: #a8bac3 !important;
+  background: #607d8b;
+}
+
+.background-blue-gray a {
+  color: #b7c6cd;
+  text-decoration: none;
+}
+
+.background-blue-gray a:not([disabled]):focus {
+  color: #2c3940;
+}
+
+.background-blue-gray a:not([disabled]):hover {
+  color: #2c3940;
+}
+
+.background-gray {
+  color: #fdfdfd !important;
+  background: #bdbdbd;
+}
+
+.background-gray a {
+  color: white;
+  text-decoration: none;
+}
+
+.background-gray a:not([disabled]):focus {
+  color: #7d7d7d;
+}
+
+.background-gray a:not([disabled]):hover {
+  color: #7d7d7d;
+}
+
+.background-dark-gray {
+  color: #828282 !important;
+  background: #424242;
+}
+
+.background-dark-gray a {
+  color: #8f8f8f;
+  text-decoration: none;
+}
+
+.background-dark-gray a:not([disabled]):focus {
+  color: #020202;
+}
+
+.background-dark-gray a:not([disabled]):hover {
+  color: #020202;
+}
+
+.background-black {
+  color: #404040 !important;
+  background: #000;
+}
+
+.background-black a {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.background-black a:not([disabled]):focus {
+  color: #666666;
+}
+
+.background-black a:not([disabled]):hover {
+  color: #666666;
 }
 
 .auth-form {

@@ -8,3 +8,9 @@
 .app-layout-content {
 	overflow-y: auto;
 }
+
+@each $color, $value in $theme-colors {
+  .background-#{$color} {
+    @include background-style($value);
+  }
+}
