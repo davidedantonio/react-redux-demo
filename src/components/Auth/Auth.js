@@ -1,59 +1,63 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Alert } from 'antd';
 
 import * as actions from '../../store/actions/index';
 
-import styles from './Auth.less';
 const FormItem = Form.Item;
 
 class Auth extends Component {
-  
-  state = {
-    token: null,
-    userId: null,
-    error: null,
-    loading: false,
-    authRedirectPath: '/dashboard'
-  }
+
+  loginHandler = (e) => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        this.props.onAuth(values.userName,values.password, false);
+      }
+    });
+  };
 
   render(){
     const { getFieldDecorator } = this.props.form;
 
+    let errorMessage = null;
+    if (this.props.error) {
+      errorMessage = (
+        <Alert
+          className="auth-alert"
+          message={this.props.error}
+          type="error"
+          showIcon
+        />
+      );
+    }
+    
     return (
-      <div className={styles.form}>
-      <form>
-
+      <form onSubmit={this.loginHandler} className="auth-form">
         <FormItem>
           {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+            rules: [{ required: true, message: 'Username obbligatorio!' }],
           })(
             <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
           )}
         </FormItem>
         <FormItem>
           {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
+            rules: [{ required: true, message: 'Password obbligatoria!' }],
           })(
             <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
           )}
         </FormItem>
+        {errorMessage}
         <FormItem>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
-          })(
-            <Checkbox>Remember me</Checkbox>
-          )}
-          <a className="login-form-forgot" href="">Forgot password</a>
           <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
+            Accedi
           </Button>
-          Or <a href="">register now!</a>
+          <p>
+            <a className="login-form-forgot" href="">Password smarrita?</a>
+          </p>
         </FormItem>
-
       </form>
-    </div>
     );
   }
 }

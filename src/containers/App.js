@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import {  Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import Auth from './../components/Auth/Auth';
 import Rmp from './../components/Rmp/Rmp';
+import Dashboard from './../components/Dashboard/Dashboard';
+import User from './../components/User/User';
 import * as actions from '../store/actions/index';
-
-import './App.css';
 
 class App extends Component {
   componentDidMount () {
@@ -17,24 +17,26 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route path="/auth" component={Auth} />
-        <Route path="/" exact component={Rmp} />
-        <Redirect to="/" />
+        <Redirect to="/auth" />
       </Switch>
     );
 
     // Check if user is authenticated
     if (this.props.isAuthenticated === true) {
-      console.log("MAMMT");
       routes = (
-        <Switch>
-          <Route path="/" exact component={Rmp} />
-          <Redirect to="/" />
-        </Switch>
+        <Rmp>
+          <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/dashboard" exact component={Dashboard} />
+            <Route path="/users" exact component={User} />
+            <Redirect to="/dashboard" />
+          </Switch>
+        </Rmp>
       );
     }
 
     return (
-      <div>
+      <div className="main-container">
         {routes}
       </div>
     );

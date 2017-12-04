@@ -1,1 +1,440 @@
-@import '~antd/dist/antd.css';
+@import url(~antd/dist/antd.css);
+.navigation {
+  width: 100%;
+  background: #fff;
+  padding: 0 20px;
+}
+
+.navigation.navigtion-fixed {
+  position: fixed;
+}
+
+.navigation.navigation-raised {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.navigation .navigation-sidebar-button {
+  font-size: 20px;
+}
+
+.navigation-red {
+  color: #fbb4af;
+  background: #f44336;
+}
+
+.navigation-red a {
+  color: #fccbc7;
+  text-decoration: none;
+}
+
+.navigation-red a:not([disabled]):focus {
+  color: #a21309;
+}
+
+.navigation-red a:not([disabled]):hover {
+  color: #a21309;
+}
+
+.navigation-pink {
+  color: #f492b4;
+  background: #e91e63;
+}
+
+.navigation-pink a {
+  color: #f7a9c4;
+  text-decoration: none;
+}
+
+.navigation-pink a:not([disabled]):focus {
+  color: #7b0c32;
+}
+
+.navigation-pink a:not([disabled]):hover {
+  color: #7b0c32;
+}
+
+.navigation-purple {
+  color: #d176e1;
+  background: #9c27b0;
+}
+
+.navigation-purple a {
+  color: #d88be5;
+  text-decoration: none;
+}
+
+.navigation-purple a:not([disabled]):focus {
+  color: #3f1048;
+}
+
+.navigation-purple a:not([disabled]):hover {
+  color: #3f1048;
+}
+
+.navigation-deep-purple {
+  color: #ae94dd;
+  background: #673ab7;
+}
+
+.navigation-deep-purple a {
+  color: #bda7e3;
+  text-decoration: none;
+}
+
+.navigation-deep-purple a:not([disabled]):focus {
+  color: #311b56;
+}
+
+.navigation-deep-purple a:not([disabled]):hover {
+  color: #311b56;
+}
+
+.navigation-indigo {
+  color: #98a2db;
+  background: #3f51b5;
+}
+
+.navigation-indigo a {
+  color: #abb4e2;
+  text-decoration: none;
+}
+
+.navigation-indigo a:not([disabled]):focus {
+  color: #1e2756;
+}
+
+.navigation-indigo a:not([disabled]):hover {
+  color: #1e2756;
+}
+
+.navigation-blue {
+  color: #82c6f6;
+  background: #108ee9;
+}
+
+.navigation-blue a {
+  color: #9ad1f8;
+  text-decoration: none;
+}
+
+.navigation-blue a:not([disabled]):focus {
+  color: #084572;
+}
+
+.navigation-blue a:not([disabled]):hover {
+  color: #084572;
+}
+
+.navigation-light-blue {
+  color: #79d4fd;
+  background: #03a9f4;
+}
+
+.navigation-light-blue a {
+  color: #92dcfe;
+  text-decoration: none;
+}
+
+.navigation-light-blue a:not([disabled]):focus {
+  color: #015276;
+}
+
+.navigation-light-blue a:not([disabled]):hover {
+  color: #015276;
+}
+
+.navigation-cyan {
+  color: #55ecff;
+  background: #00bcd4;
+}
+
+.navigation-cyan a {
+  color: #6eefff;
+  text-decoration: none;
+}
+
+.navigation-cyan a:not([disabled]):focus {
+  color: #004b55;
+}
+
+.navigation-cyan a:not([disabled]):hover {
+  color: #004b55;
+}
+
+.navigation-teal {
+  color: #17ffe9;
+  background: #009688;
+}
+
+.navigation-teal a {
+  color: #30ffec;
+  text-decoration: none;
+}
+
+.navigation-teal a:not([disabled]):focus {
+  color: #001714;
+}
+
+.navigation-teal a:not([disabled]):hover {
+  color: #001714;
+}
+
+.navigation-green {
+  color: #a3d7a5;
+  background: #4caf50;
+}
+
+.navigation-green a {
+  color: #b5dfb7;
+  text-decoration: none;
+}
+
+.navigation-green a:not([disabled]):focus {
+  color: #255627;
+}
+
+.navigation-green a:not([disabled]):hover {
+  color: #255627;
+}
+
+.navigation-light-green {
+  color: #eef7e0;
+  background: #b6dd7a;
+}
+
+.navigation-light-green a {
+  color: #f9fcf4;
+  text-decoration: none;
+}
+
+.navigation-light-green a:not([disabled]):focus {
+  color: #79ac2c;
+}
+
+.navigation-light-green a:not([disabled]):hover {
+  color: #79ac2c;
+}
+
+.navigation-lime {
+  color: #e8efa5;
+  background: #cddc39;
+}
+
+.navigation-lime a {
+  color: #eef3bb;
+  text-decoration: none;
+}
+
+.navigation-lime a:not([disabled]):focus {
+  color: #757f16;
+}
+
+.navigation-lime a:not([disabled]):hover {
+  color: #757f16;
+}
+
+.navigation-yellow {
+  color: #fef0b3;
+  background: #fdd835;
+}
+
+.navigation-yellow a {
+  color: #fff5cd;
+  text-decoration: none;
+}
+
+.navigation-yellow a:not([disabled]):focus {
+  color: #b19002;
+}
+
+.navigation-yellow a:not([disabled]):hover {
+  color: #b19002;
+}
+
+.navigation-amber {
+  color: #ffd080;
+  background: #ffa000;
+}
+
+.navigation-amber a {
+  color: #ffd999;
+  text-decoration: none;
+}
+
+.navigation-amber a:not([disabled]):focus {
+  color: #805000;
+}
+
+.navigation-amber a:not([disabled]):hover {
+  color: #805000;
+}
+
+.navigation-orange {
+  color: #ffcc80;
+  background: #ff9800;
+}
+
+.navigation-orange a {
+  color: #ffd699;
+  text-decoration: none;
+}
+
+.navigation-orange a:not([disabled]):focus {
+  color: #804c00;
+}
+
+.navigation-orange a:not([disabled]):hover {
+  color: #804c00;
+}
+
+.navigation-deep-orange {
+  color: #ffb8a2;
+  background: #ff5722;
+}
+
+.navigation-deep-orange a {
+  color: #ffcbbb;
+  text-decoration: none;
+}
+
+.navigation-deep-orange a:not([disabled]):focus {
+  color: #a22700;
+}
+
+.navigation-deep-orange a:not([disabled]):hover {
+  color: #a22700;
+}
+
+.navigation-brown {
+  color: #b89588;
+  background: #795548;
+}
+
+.navigation-brown a {
+  color: #c2a398;
+  text-decoration: none;
+}
+
+.navigation-brown a:not([disabled]):focus {
+  color: #291d18;
+}
+
+.navigation-brown a:not([disabled]):hover {
+  color: #291d18;
+}
+
+.navigation-blue-gray {
+  color: #a8bac3;
+  background: #607d8b;
+}
+
+.navigation-blue-gray a {
+  color: #b7c6cd;
+  text-decoration: none;
+}
+
+.navigation-blue-gray a:not([disabled]):focus {
+  color: #2c3940;
+}
+
+.navigation-blue-gray a:not([disabled]):hover {
+  color: #2c3940;
+}
+
+.navigation-gray {
+  color: #fdfdfd;
+  background: #bdbdbd;
+}
+
+.navigation-gray a {
+  color: white;
+  text-decoration: none;
+}
+
+.navigation-gray a:not([disabled]):focus {
+  color: #7d7d7d;
+}
+
+.navigation-gray a:not([disabled]):hover {
+  color: #7d7d7d;
+}
+
+.navigation-dark-gray {
+  color: #828282;
+  background: #424242;
+}
+
+.navigation-dark-gray a {
+  color: #8f8f8f;
+  text-decoration: none;
+}
+
+.navigation-dark-gray a:not([disabled]):focus {
+  color: #020202;
+}
+
+.navigation-dark-gray a:not([disabled]):hover {
+  color: #020202;
+}
+
+.navigation-black {
+  color: #404040;
+  background: #000;
+}
+
+.navigation-black a {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.navigation-black a:not([disabled]):focus {
+  color: #666666;
+}
+
+.navigation-black a:not([disabled]):hover {
+  color: #666666;
+}
+
+#root-container,
+.main-container,
+.ant-layout {
+  height: 100%;
+  background: #fff;
+}
+
+.app-layout-content {
+  overflow-y: auto;
+}
+
+.auth-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -160px 0 0 -160px;
+  width: 320px;
+  padding: 36px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.08);
+}
+
+.auth-form button {
+  width: 100%;
+}
+
+.auth-form p {
+  color: #cccccc;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.auth-form p span:first-child {
+  margin-right: 16px;
+}
+
+.auth-form .auth-alert {
+  margin-bottom: 15px;
+}
+
+.ant-spin-container,
+.ant-spin-nested-loading {
+  height: 100%;
+}

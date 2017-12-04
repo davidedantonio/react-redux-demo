@@ -1,0 +1,16 @@
+@mixin navigation-style($color: map-get($theme-colors, "gray")) {
+  color: lighten($color, 25%);
+  background: $color;
+  a {
+    color: lighten($color, 30%);
+    text-decoration: none;
+
+    @include hover-focus() {
+      @if $color == #000 {
+        color: lighten($color, 40%);
+      } @else {
+        color: darken($color, 25%);
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
+import * as urls from './actionUrls';
 
 export const authStart = () => {
   return {
@@ -36,7 +37,7 @@ export const checkAuthenticationTimeout = (expirationTime) => {
   return dispatch => {
     setTimeout(() => {
       dispatch(logout());
-    }, expirationTime * 1000);
+    }, expirationTime * 30000); // 30 days
   };
 };
 
@@ -47,26 +48,20 @@ export const auth = (email, password, isSignup) => {
     
     const authData = {
       email: email,
-      password: password,
-      returnSecureToken: true
+      password: password
     };
-
-    let url = 'urlSignup';
     
-    if (!isSignup) {
-      url = 'urlSignin';
-    }
-    
+    let url = urls.POST_LOGIN;
     axios.post(url, authData)
     .then(response => {
-      console.log(response);
       // 30 days
       const expirationDate = new Date(new Date().getTime() + 2592000 * 1000);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("expirationDate", expirationDate);
-      localStorage.setItem("userId", response.data.userId);
+      localStorage.setItem("userId", response.data.token);
 
-      dispatch(authSuccess(response.data.token, response.data.userId));
+      console.log(localStorage.getItem("token"));
+      dispatch(authSuccess(response.data.token, response.data.token));
       dispatch(checkAuthenticationTimeout(2592000));
     })
     .catch(err => {
@@ -92,9 +87,10 @@ export const authCheckState = () => {
       if (expirationDate <= new Date()) {
         dispatch(logout());
       } else {
+        console.log("kitestramuort");
         const userId = localStorage.getItem("userId");
         dispatch(authSuccess(token,userId));
-        dispatch(checkAuthenticationTimeout(expirationDate.getTime() - new Date() / 1000));
+        dispatch(checkAuthenticationTimeout(expirationDate.getTime() - new Date() / 100));
       }
     }
   };

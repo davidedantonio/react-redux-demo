@@ -1,0 +1,8 @@
+@mixin hover {
+  &:not([disabled]):hover { @content; }
+}
+
+@mixin hover-focus {
+  &:not([disabled]):focus { @content; }
+  @include hover { @content; }
+}
