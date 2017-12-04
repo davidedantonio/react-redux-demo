@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Card, Row, Col, Table, Tabs,  Form, Input } from 'antd';
+import { Button, Card, Row, Col, Table, Tabs,  Form, Input, Select } from 'antd';
 
 const TabPane = Tabs.TabPane;
 const FormItem = Form.Item;
+const Option = Select.Option;
 
 const columns = [{
   title: 'Name',
@@ -34,8 +35,13 @@ class User extends Component {
 	};
 
 	render() {
-		const minHeight = this.state.windowHeight - 206;
+		const minHeight = this.state.windowHeight - 230;
 		
+		const children = [];
+		for (let i = 10; i < 36; i++) {
+			children.push(<Option key={i.toString(36) + i}>Gruppo {i}</Option>);
+		}
+
 		const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 16 }
@@ -55,13 +61,7 @@ class User extends Component {
     };
 
 		return (
-			<Card bodyStyle={{ padding: 0 }}>
-				<div className="subhead background-blue">
-					<div className="subhead-title">Users List</div>
-					<div className="ant-card-extra">
-						<Button ghost>Create</Button>
-					</div>
-				</div>
+			<Card title="Users List" extra={<Button>Create</Button>} bodyStyle={{ padding: 0 }}>
 				<Row>
 					<Col md={16} lg={16} xl={16}>
 						<Table size="small" columns={columns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: minHeight }} />
@@ -71,28 +71,28 @@ class User extends Component {
 						<Tabs defaultActiveKey="1" style={{ height: minHeight+40, overflowY: "auto" }}>	
 								<TabPane tab="Anagrafica" key="1">
 									<FormItem
-											label="Nome"
+											label="Name"
 											{...formItemLayout}
 										>
 										<Input placeholder="Nome..." />
 									</FormItem>
 
 									<FormItem
-											label="Cognome"
+											label="Surname"
 											{...formItemLayout}
 										>
 										<Input placeholder="Cognome..." />
 									</FormItem>
 
 									<FormItem
-											label="Telefono"
+											label="Phone"
 											{...formItemLayout}
 										>
 										<Input placeholder="telefono..." />
 									</FormItem>
 
 									<FormItem
-											label="Cellulare"
+											label="Mobile Phone"
 											{...formItemLayout}
 										>
 										<Input placeholder="Cellulare..." />
@@ -105,8 +105,20 @@ class User extends Component {
 										<Input placeholder="Email..." />
 									</FormItem>
 								</TabPane>
-								<TabPane tab="Tab 2" key="2">Content of tab 2</TabPane>
-								<TabPane tab="Tab 3" key="3">Content of tab 3</TabPane>
+								<TabPane tab="Groups" key="2">
+									<FormItem
+											label="Groups"
+											{...formItemLayout}
+										>
+										<Select
+												mode="multiple"
+												style={{ width: '100%' }}
+												placeholder="Please select"
+											>
+											{children}
+										</Select>
+									</FormItem>
+								</TabPane>
 						</Tabs>
 						<Row style={{ paddingBottom: 0 }}>
 							<Col md={12} lg={12} xl={12} style={{ padding: "10px 10px 0px 10px" }}>
