@@ -9,6 +9,7 @@ import Global from './../components/Global/Global';
 import Groups from './../components/Groups/Groups';
 import Profiles from './../components/Profiles/Profiles';
 import Functions from './../components/Functions/Functions';
+import TtSla from './../components/TtSla/TtSla';
 import * as actions from '../store/actions/index';
 import enUS from 'antd/lib/locale-provider/en_US';
 import {LocaleProvider} from 'antd';
@@ -27,8 +28,7 @@ class App extends Component {
       </Switch>
     );
 
-    // Check if user is authenticated
-    
+    // Check if user is authenticated    
     if (this.props.isAuthenticated === true) {
       routes = (
         <LocaleProvider locale={enUS}>
@@ -41,6 +41,7 @@ class App extends Component {
               <Route path="/groups" exact component={Groups} />
               <Route path="/profiles" exact component={Profiles} />
               <Route path="/functions" exact component={Functions} />
+              <Route path="/tts-la" exact component={TtSla} />
               <Redirect to="/dashboard" />
             </Switch>
           </Rmp>

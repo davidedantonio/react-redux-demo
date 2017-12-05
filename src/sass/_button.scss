@@ -1,0 +1,12 @@
+@each $color, $value in $theme-colors {
+  .ant-btn-#{$color} {
+    @include button-style($color);
+  }
+}
+
+// For each color we generate an outline button variant
+@each $color, $value in $theme-colors {
+  .ant-btn-outline-#{$color} {
+    @include button-style-outline($color);
+  }
+}

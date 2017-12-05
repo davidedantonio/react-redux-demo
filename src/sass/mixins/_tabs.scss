@@ -1,0 +1,15 @@
+@mixin tabs-style($color) {
+  .ant-tabs-nav,
+  .ant-tabs-tab,
+  .ant-tabs-tab-active {
+    color: $color;
+
+    &:hover {
+      color: lighten($color, 15%);
+    }
+  }
+
+  .ant-tabs-ink-bar{
+    background-color: $color;
+  }
+}

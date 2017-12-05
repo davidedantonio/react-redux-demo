@@ -9,6 +9,9 @@ import MenuApp from './../Layout/MenuApp';
 
 const { Header, Sider, Content } = Layout;
 
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
+
 
 class Rmp extends Component {
   state = {
@@ -22,14 +25,6 @@ class Rmp extends Component {
   }
 
   render() {
-    const menu = (
-      <Menu selectedKeys={[]}>
-        <Menu.Item><Icon type="setting" /> Settings</Menu.Item>
-        <Menu.Divider />
-        <Menu.Item key="logout"><Icon type="logout" /> Logout</Menu.Item>
-      </Menu>
-    );
-
     return (
       <Layout>
         <Sider
@@ -47,11 +42,18 @@ class Rmp extends Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-
             <span className="right">
-              <Dropdown overlay={menu}>
-                <Avatar className="avatar" shape="square" size="large" icon="user" />
-              </Dropdown>
+            <Menu
+              onClick={this.handleClick}
+              selectedKeys={[this.state.current]}
+              mode="horizontal"
+            >
+            <SubMenu title={<span><Icon type="user" style={{ fontSize: "24px",marginRight:0 }} /></span>}>
+              <Menu.Item><Icon type="setting" /> Settings</Menu.Item>
+              <Menu.Divider />
+              <Menu.Item key="logout"><Icon type="logout" /> Logout</Menu.Item>
+            </SubMenu>
+          </Menu>
             </span>
           </Header>
           <Content className="app-layout-content">

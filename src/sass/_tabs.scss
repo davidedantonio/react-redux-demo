@@ -1,0 +1,5 @@
+@each $color, $value in $theme-colors {
+  .ant-tabs-#{$color} {
+    @include tabs-style($value);
+  }
+}

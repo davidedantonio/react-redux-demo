@@ -1,0 +1,58 @@
+@mixin button-style($button-style) {
+  text-decoration: none;
+  background-color: map-get($theme-colors, $button-style);
+  border-color: darken(map-get($theme-colors, $button-style), .5%);
+  @include transition($button-transition);
+  @include color-contrast(map-get($theme-colors, $button-style));
+
+  &[disabled] {
+    box-shadow: none;
+    opacity: .6;
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+    cursor: pointer;
+    background: lighten(map-get($theme-colors, $button-style), 8%);  
+    border-color: darken(map-get($theme-colors, $button-style), .5%);
+    @include color-contrast(map-get($theme-colors, $button-style));
+  }
+
+  &:not([disabled]):focus {
+    outline: 0;
+  }
+
+  &:not([disabled]):active {
+    background-image: none;
+  }
+}
+
+@mixin button-style-outline($button-style) {
+  color: map-get($theme-colors, $button-style);
+  text-decoration: none;
+  background-color: transparent;
+  border-color: map-get($theme-colors, $button-style);
+  &[disabled] {
+    opacity: .6;
+
+    &:hover {
+      background: none;
+      box-shadow: none;
+    }
+  }
+
+  @include hover-focus {
+    @include color-contrast(map-get($theme-colors, $button-style));
+    text-decoration: none;
+    background: lighten(map-get($theme-colors, $button-style), 8%);
+    border-color: map-get($theme-colors, $button-style);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(map-get($theme-colors, $button-style), .25);
+  }
+
+  &:active {
+    background-image: none;
+  }
+}

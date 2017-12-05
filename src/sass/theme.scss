@@ -2,7 +2,10 @@
 
 @import "variables";
 @import "mixins/mixins";
-@import "subheader";
 @import "navbar";
+@import "card-head";
+@import "button";
+@import "tabs";
+@import "sider";
 @import 'app';
 @import 'auth';

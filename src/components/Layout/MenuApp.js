@@ -8,7 +8,7 @@ class MenuApp extends Component {
   render() {
     return (
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-        <Menu.Item key="1">
+        <Menu.Item key="dahboard">
           <Link to="/dashboard">
             <Icon type="global" />
             <span>Dashboard</span>
@@ -46,6 +46,12 @@ class MenuApp extends Component {
             </Link>
           </Menu.Item>
         </SubMenu>
+        <Menu.Item key="tts-la">
+          <Link to="/tts-la">
+            <Icon type="flag" />
+            <span>TTS-LA</span>
+          </Link>
+        </Menu.Item>
       </Menu>
     );
   }

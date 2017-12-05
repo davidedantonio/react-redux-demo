@@ -9,6 +9,14 @@
 	overflow-y: auto;
 }
 
+.ant-tree-title {
+  font-weight: bold;
+}
+
+.ant-card-head-title {
+  font-size: 23px;
+}
+
 @each $color, $value in $theme-colors {
   .background-#{$color} {
     @include background-style($value);

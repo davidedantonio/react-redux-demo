@@ -1,0 +1,89 @@
+@mixin sider-style($color-name, $color) {
+  background: $color;
+
+  .ant-menu-#{$color-name} {
+    background: $color;
+    color: color-level($color-name, -8);
+
+    .ant-menu-sub {
+      background: darken($color, 10%) !important;
+    }
+  }  
+
+  .ant-menu-inline, 
+  .ant-menu-vertical, 
+  .ant-menu-vertical-left {
+    border-right: 1px solid $color;
+    background: $color
+  }
+
+  .ant-menu-item-selected,
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background: darken($color, 10%);
+
+    > a {
+      color: get-color-contrast($color);
+    }
+  }
+
+  .ant-menu-submenu-open,
+  .ant-submenu-active,
+  .ant-menu-submenu-title {
+    color: darken(get-color-contrast($color),20%);
+  }
+
+  .ant-menu-submenu-active {
+    span {
+      color: get-color-contrast($color);
+    }
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    &:active {
+      background: darken($color, 10%);
+    }
+
+    > a {
+      color: darken(get-color-contrast($color),20%);
+
+      &:hover,
+      &:active {
+        color: get-color-contrast($color);
+      }
+    }
+  }
+
+  .ant-menu-vertical 
+  .ant-menu-item:after, 
+  .ant-menu-vertical-left 
+  .ant-menu-item:after, 
+  .ant-menu-vertical-right 
+  .ant-menu-item:after, 
+  .ant-menu-inline 
+  .ant-menu-item:after {
+    border-right: 3px solid darken($color, 10%);
+  }
+
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow:before {
+    background: get-color-contrast($color);
+  }
+
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow:after,
+  .ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu-vertical-left > .ant-menu-submenu-title .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu-vertical-right > .ant-menu-submenu-title .ant-menu-submenu-arrow:before,
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow:before {
+    background: darken(get-color-contrast($color),20%);
+  }
+}

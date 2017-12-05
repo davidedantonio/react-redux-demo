@@ -1,3 +1,11 @@
+@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    transition: $transition-base;
+  } @else {
+    transition: $transition;
+  }
+}
+
 @mixin hover {
   &:not([disabled]):hover { @content; }
 }
@@ -5,4 +13,16 @@
 @mixin hover-focus {
   &:not([disabled]):focus { @content; }
   @include hover { @content; }
+}
+
+// Color contrast
+@mixin color-contrast($color) {
+  color: get-color-contrast($color);
+}
+
+// Truncate text utility
+@mixin truncate-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

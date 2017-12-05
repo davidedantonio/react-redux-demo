@@ -34,6 +34,7 @@ $orange:      #ff9800 !default;
 $deep-orange: #ff5722 !default;
 $brown:       #795548 !default;
 $blue-gray:   #607d8b !default;
+$dark:        #001529 !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge((
@@ -57,9 +58,15 @@ $theme-colors: map-merge((
   "blue-gray": $blue-gray,
   "gray": $gray-400,
   "dark-gray": $gray-800,
-  "black": $black
+  "black": $black,
+  "white": $white,
+  "dark": $dark
 ),$theme-colors);
 
+$theme-color-interval: 8% !default;
 
 // Navigation
 $navigation-padding: 0 20px;
+
+// Buttons
+$button-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;

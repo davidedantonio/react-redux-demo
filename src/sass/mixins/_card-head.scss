@@ -1,0 +1,23 @@
+@mixin card-head-style($color: map-get($theme-colors, "gray")) {
+  .ant-card-head {
+    color: get-color-contrast($color);
+    background: $color;
+
+    .ant-card-head-title {
+      color: get-color-contrast($color);
+    }
+  
+    a {
+      color: lighten($color, 30%);
+      text-decoration: none;
+  
+      @include hover-focus() {
+        @if $color == #000 {
+          color: lighten($color, 40%);
+        } @else {
+          color: darken($color, 25%);
+        }
+      }
+    }
+  }
+}

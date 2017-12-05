@@ -1,0 +1,30 @@
+@each $color, $value in $theme-colors {
+  .ant-layout-sider-#{$color} {
+    @include sider-style($color, $value);
+  }
+
+  .ant-menu-#{$color}, .ant-menu-#{$color} .ant-menu-sub {
+    background-color: $value !important;
+    color: color-level($color, -8);
+  }
+
+  .ant-menu-#{$color} .ant-menu-inline.ant-menu-sub {
+    background-color: $value !important;
+  }
+
+  .ant-menu-#{$color} {
+    .ant-menu-item {
+      > a {
+        color: darken(get-color-contrast($value), 20%);
+
+        &:hover {
+          color: get-color-contrast($value);
+        }
+      }
+    }
+  }
+
+  .ant-menu-submenu-popup.ant-menu-#{$color} .ant-menu-item-selected {
+    background-color: darken($value, 10%);
+  }
+}
