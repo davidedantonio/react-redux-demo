@@ -1,9 +1,9 @@
 @mixin background-style($color: map-get($theme-colors, "gray")) {
-  color: lighten($color, 25%) !important;
+  color: get-color-contrast($color);
   background: $color;
 
   a {
-    color: lighten($color, 30%);
+    color: get-color-contrast($color);
     text-decoration: none;
 
     @include hover-focus() {

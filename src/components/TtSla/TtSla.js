@@ -71,6 +71,7 @@ class TtSla extends Component {
         <Menu
         mode="horizontal"
         onClick={this.add}
+        className="background-dark"
         >
           <SubMenu title="Backlog">
             <Menu.Item key="Backlog Tickets">Ticket</Menu.Item>
@@ -102,6 +103,7 @@ class TtSla extends Component {
               activeKey={this.state.activeKey}
               type="editable-card"
               onEdit={this.onEdit}
+              style={{ height: minHeight-113, overflowY: "auto" }}
             >
               {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key}>{pane.content}</TabPane>)}
             </Tabs>

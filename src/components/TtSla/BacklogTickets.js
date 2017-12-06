@@ -1,33 +1,37 @@
 import React, { Component } from 'react';
 import { Select, Radio, Table, Row, Col, Button, Icon, List } from 'antd';
+import 'font-awesome/css/font-awesome.min.css'; 
 
 const Option = Select.Option;
 const ButtonGroup = Button.Group;
 
 const columns = [
-  { title: 'Full Name', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
-  { title: 'Age', width: 100, dataIndex: 'age', key: 'age', fixed: 'left' },
-  { title: 'Column 1', dataIndex: 'address', key: '1', width: 150 },
-  { title: 'Column 2', dataIndex: 'address', key: '2', width: 150 },
-  { title: 'Column 3', dataIndex: 'address', key: '3', width: 150 },
-  { title: 'Column 4', dataIndex: 'address', key: '4', width: 150 },
-  { title: 'Column 5', dataIndex: 'address', key: '5', width: 150 },
-  { title: 'Column 6', dataIndex: 'address', key: '6', width: 150 },
-  { title: 'Column 7', dataIndex: 'address', key: '7', width: 150 },
-  { title: 'Column 1', dataIndex: 'address', key: '8', width: 150 },
-  { title: 'Column 2', dataIndex: 'address', key: '9', width: 150 },
-  { title: 'Column 3', dataIndex: 'address', key: '10', width: 150 },
-  { title: 'Column 4', dataIndex: 'address', key: '11', width: 150 },
-  { title: 'Column 5', dataIndex: 'address', key: '12', width: 150 },
-  { title: 'Column 6', dataIndex: 'address', key: '13', width: 150 },
-  { title: 'Column 7', dataIndex: 'address', key: '14', width: 150 }
+  { title: <i className="fa fa-microchip"></i>, width: 50, dataIndex: 'status', key: 'status', fixed: 'left', textAlign: "center" },
+  { title: <i className="fa fa-bell"></i>, width: 50, dataIndex: 'bell', key: 'age', fixed: 'left' },
+  { title: 'Area', width: 50, dataIndex: 'area', key: 'area', fixed: 'left', textAlign: "center" },
+  { title: 'Column 1', dataIndex: 'address', key: '1'},
+  { title: 'Column 2', dataIndex: 'address', key: '2'},
+  { title: 'Column 3', dataIndex: 'address', key: '3'},
+  { title: 'Column 4', dataIndex: 'address', key: '4'},
+  { title: 'Column 5', dataIndex: 'address', key: '5'},
+  { title: 'Column 6', dataIndex: 'address', key: '6'},
+  { title: 'Column 7', dataIndex: 'address', key: '7'},
+  { title: 'Column 1', dataIndex: 'address', key: '8'},
+  { title: 'Column 2', dataIndex: 'address', key: '9'},
+  { title: 'Column 3', dataIndex: 'address', key: '10'},
+  { title: 'Column 4', dataIndex: 'address', key: '11'},
+  { title: 'Column 5', dataIndex: 'address', key: '12'},
+  { title: 'Column 6', dataIndex: 'address', key: '13'},
+  { title: 'Column 7', dataIndex: 'address', key: '14'}
 ];
 
 const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
-    name: `Edrward ${i}`,
+    bell: '',
+    status: <i className="fa fa-circle"></i>,
+    area: 'CE',
     age: 32,
     address: `London Park no. ${i}`,
   });
@@ -40,12 +44,10 @@ class BacklogTickets extends Component {
   
   render() {
     const minHeight = this.state.windowHeight;
-
-    console.log(minHeight);
     return (
       <div>
         <Row gutter={8} style={{ paddingLeft:10, paddingRight: 10}}>
-          <Col span={4}>
+          <Col span={8}>
             <Button size="small"><Icon type="filter" /></Button> 
             <Select
               size="small"
@@ -61,7 +63,6 @@ class BacklogTickets extends Component {
           <Col span={4}></Col>
           <Col span={4}></Col>
           <Col span={4}></Col>
-          <Col span={4}></Col>
           <Col span={4} style={{ textAlign: 'right' }}>
             <ButtonGroup size="small">
               <Button type="primary" icon="reload" />
@@ -70,7 +71,7 @@ class BacklogTickets extends Component {
             </ButtonGroup>
           </Col>
         </Row>
-        <Table style={{ marginTop:"10px" }} columns={columns} size="small" dataSource={data} scroll={{ x: 2300, y: 300 }} />
+        <Table style={{ marginTop:"10px", height: minHeight-203  }} pagination={{ pageSize: 50 }} columns={columns} size="small" dataSource={data} scroll={{ x: 2300, y: minHeight-300 }} />
       </div>
     );
   }

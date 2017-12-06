@@ -22,3 +22,8 @@
     @include background-style($value);
   }
 }
+
+.ant-table-small .ant-table-header > table, .ant-table-small .ant-table-body > table {
+  border: 0;
+  padding: 0 0px;
+}
